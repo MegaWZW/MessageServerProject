@@ -3,6 +3,7 @@ package com.mycompany.app.message_server.controllers;
 import com.mycompany.app.message_server.core.dto.UserDTO;
 import com.mycompany.app.message_server.service.CookieService;
 import com.mycompany.app.message_server.service.UserService;
+import com.mycompany.app.message_server.service.factories.UserServiceSingleton;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         CookieService.saveCookies(resp,"yearBirth",yearBirth);
 
         UserDTO user= new UserDTO(login,password,fio, new GregorianCalendar(Integer.parseInt(yearBirth) ,Integer.parseInt(monthBirth),Integer.parseInt(dayBirth));
-        UserService.save
+        UserServiceSingleton.getInstance().save(user);
 
 
 //
