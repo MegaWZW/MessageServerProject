@@ -1,19 +1,10 @@
 package com.mycompany.app.message_server.dao.api;
 
-import com.mycompany.app.message_server.core.Message;
+import com.mycompany.app.message_server.core.dto.AcceptedMessageDTO;
 
 import java.util.List;
 
 public interface IMessageDao {
-    /**
-     * метод для получения списка, хранящегося внутри Dao
-     * @return список строк
-     */
-    List<Message> getData();
-
-    /**
-     * метод для сохранения объекта Голос в DAO
-     * @param message
-     */
-    void save(Message message);
+	List<AcceptedMessageDTO> getMessages();
+	void save(AcceptedMessageDTO message);
 }
