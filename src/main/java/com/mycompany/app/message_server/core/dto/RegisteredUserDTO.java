@@ -57,4 +57,13 @@ public class RegisteredUserDTO {
 	public int hashCode() {
 		return Objects.hash(dto, registrationDate,idAdmin);
 	}
+
+	@Override
+	public String toString() {
+		return "RegisteredUserDTO{" +
+				"dto=" + dto.toString() +
+				", registrationDate=" + registrationDate +
+				", idAdmin=" + idAdmin +
+				'}';
+	}
 }

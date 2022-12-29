@@ -42,4 +42,15 @@ public class UserDao implements IUserDao {
 	public void save(RegisteredUserDTO user) {
 		this.users.add(user);
 	}
+
+	@Override
+	public RegisteredUserDTO getUser(String login) {
+		List<RegisteredUserDTO> registeredUsers = getUsers();
+		for (RegisteredUserDTO user : registeredUsers){
+			if(user.getDto().getLogin().equals(login)){
+				return user;
+			}
+		}
+		return null;
+	}
 }

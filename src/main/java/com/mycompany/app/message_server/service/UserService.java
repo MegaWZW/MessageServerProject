@@ -6,6 +6,9 @@ import com.mycompany.app.message_server.dao.api.IUserDao;
 import com.mycompany.app.message_server.service.api.IMessageService;
 import com.mycompany.app.message_server.service.api.IUserService;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+
 public class UserService implements IUserService {
 	private final IUserDao dao;
 	private final IMessageService messageService;
@@ -20,6 +23,21 @@ public class UserService implements IUserService {
 		this.validate(dto);
 		RegisteredUserDTO registeredUser = new RegisteredUserDTO(dto, false);
 		this.dao.save(registeredUser);
+	}
+
+	@Override
+	public RegisteredUserDTO getUser(String login) {
+		RegisteredUserDTO user = this.dao.getUser(login);
+		if (user != null){
+			return user;
+		}else{
+			return null;
+		}
+	}
+
+	@Override
+	public List<RegisteredUserDTO> getUsers() {
+		return this.dao.getUsers();
 	}
 
 	@Override
@@ -57,6 +75,10 @@ public class UserService implements IUserService {
 
 		if(dto.getBirthDate() == null){
 			throw new IllegalArgumentException("Должна быть заполнена дата рождения");
+		}
+
+		if(isExist(dto.getLogin())){
+			throw new IllegalArgumentException("Пользователь с таким логином существует");
 		}
 	}
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IUserDao {
 	List<RegisteredUserDTO> getUsers();
+	RegisteredUserDTO getUser(String login);
 	boolean isExist (String login);
 	void save (RegisteredUserDTO user);
 }

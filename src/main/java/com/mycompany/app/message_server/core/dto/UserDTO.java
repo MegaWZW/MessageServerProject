@@ -16,6 +16,8 @@ public class UserDTO {
 		this.birthDate = birthDate;
 	}
 
+	public UserDTO(){};
+
 	public String getLogin() {
 		return login;
 	}
@@ -60,5 +62,15 @@ public class UserDTO {
 	@Override
 	public int hashCode() {
 		return Objects.hash(login, fio, birthDate);
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO{" +
+				"login='" + login + '\'' +
+				", password='" + password + '\'' +
+				", fio='" + fio + '\'' +
+				", birthDate=" + birthDate.getTime() +
+				'}';
 	}
 }
