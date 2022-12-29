@@ -11,6 +11,7 @@ public class StatisticsService implements IStatisticsService {
 	private final IUserService userService;
 	private final IMessageService messageService;
 
+
 	public StatisticsService(IUserService userService, IMessageService messageService) {
 		this.userService = userService;
 		this.messageService = messageService;
@@ -33,6 +34,7 @@ public class StatisticsService implements IStatisticsService {
 
 	@Override
 	public long getOnlineAmount() {
-		return new ActiveUsersListener().getCounter();
+		return ActiveUsersListener.counter;
 	}
+
 }
