@@ -8,8 +8,8 @@
 		<title>Messenger Main Page</title>
 	</head>
 	<body>
-		<h1>Welcome to messenger!<h1>
-		<p><a href="/ui/singIn">Войти</a></p>
-		<p><a href="/ui/singUp">Зарегистрироваться</a></p>
+		<h1>Добро пожаловать в мессенджер!<h1>
+		<p><a href="ui/singIn">Войти</a></p>
+		<p><a href="ui/singUp">Регистрация</a></p>
 	</body>
 </html>

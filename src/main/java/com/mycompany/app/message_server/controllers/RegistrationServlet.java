@@ -17,6 +17,12 @@ import java.util.GregorianCalendar;
 
 @WebServlet(name = "RegistrationServlet", urlPatterns = "/api/user")
 public class RegistrationServlet extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+		request.getRequestDispatcher("/singUp.jsp").forward(request, response);
+	}
 
 	private final IUserService userService;
 
@@ -33,7 +39,6 @@ public class RegistrationServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
 
 		String login = request.getParameter(PARAMETER_LOGIN);
@@ -61,7 +66,6 @@ public class RegistrationServlet extends HttpServlet {
 			case 11: birthDate = new GregorianCalendar(year, Calendar.NOVEMBER, day);
 			case 12: birthDate = new GregorianCalendar(year, Calendar.DECEMBER, day);
 		}
-
 		userService.save(new UserDTO(login, password, fio, birthDate));
 
 		response.setContentType("text/html; charset=UTF-8");

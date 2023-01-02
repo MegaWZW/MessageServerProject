@@ -6,9 +6,12 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>SingUp Page</title>
+
 	</head>
 	<body>
-		<form action="/api/user" method="post">
+		<form action="api/user" method="post">
+		    <h1>Регистрация: </h1>
+		    <br><br>
 			Логин: <input name="login"/>
 			<br><br>
 			Пароль: <input name="password"/>
@@ -20,7 +23,7 @@
 			Месяц рождения(цифрой):  <input name="month" type="number" min=1 max=12/>
 			<br><br>
 			День рождения: <input name="day" type="number" min=1 max=31/>
-			<input type="submit" value="Submit" />
+			<input type="submit" value="Регистрация" />
 		</form>
 	</body>
 </html>
