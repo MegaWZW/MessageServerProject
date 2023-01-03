@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(name = "StatisticsServlet", urlPatterns = "/api/amin/statistics")
+@WebServlet(name = "StatisticsServlet", urlPatterns = "/api/admin/statistics")
 public class StatisticsServlet extends HttpServlet {
 
 	private final IStatisticsService statisticsService;
@@ -27,10 +26,8 @@ public class StatisticsServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		StatisticsResultDTO result = statisticsService.getResult();
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.write("<h1>" + "Статистика: " + "</h1>");
-		out.write("<br>" + "<p>" + "Количество зарегестрированных пользователей: " + result.getUsersAmount()
-		+ "</p>" + "<br>" + "<p>" + "Количетсво активных пользователей: " + result.getUsersOnline() + "</p>" +
-				"<br>" + "<p>" + "Количество отправленных в приложении сообщений: " + result.getMessagesAmount() + "</p>");
+		request.setAttribute("result", result);
+		request.getRequestDispatcher("/statistics.jsp").forward(request, response);
+
 	}
 }

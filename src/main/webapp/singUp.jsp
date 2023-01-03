@@ -9,7 +9,7 @@
 
 	</head>
 	<body>
-		<form action="api/user" method="post">
+		<form action="/message_server-1.0.0/api/user" method="post">
 		    <h1>Регистрация: </h1>
 		    <br><br>
 			Логин: <input name="login"/>

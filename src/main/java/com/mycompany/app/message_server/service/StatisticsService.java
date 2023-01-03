@@ -34,7 +34,7 @@ public class StatisticsService implements IStatisticsService {
 
 	@Override
 	public long getOnlineAmount() {
-		return ActiveUsersListener.counter;
+		return ActiveUsersListener.getCounter();
 	}
 
 }

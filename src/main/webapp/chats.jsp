@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<%@ page language="java"
-        contentType="text/html; charset=utf-8"
-        pageEncoding="UTF-8"%>
-<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<title>SingUp Page</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 
-	</head>
-	<body>
-		<form action="/api/message" method="post">
-		    <h1>Сообщения: </h1>
-		    <br><br>
-			Логин: <input name="login"/>
-			<br><br>
-			Пароль: <input name="password"/>
-			<br><br>
-			ФИО: <input name="fio"/>
-			<br><br>
-			Год рождения: <input name="year" type="number" min=1900 max=2022/>
-			<br><br>
-			Месяц рождения(цифрой):  <input name="month" type="number" min=1 max=12/>
-			<br><br>
-			День рождения: <input name="day" type="number" min=1 max=31/>
-			<input type="submit" value="Регистрация" />
-		</form>
-	</body>
+<html>
+    <head>
+		<meta charset="UTF-8"/>
+		<title>Your messages</title>
+    </head>
+    <body>
+        <h1>Сообщения для пользователя: "${receiver.dto.login}"</h1>
+        <br><br>
+        <c:forEach items="${messages}" var="item">
+            <p>${item.dtAcceptance.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))} : ${item.message.text}</p>
+        </c:forEach>
+        <p><a href="/message_server-1.0.0/ui/user/message">Написать сообщение</a></p>
+        <p><a href="/message_server-1.0.0/ui">Вернуться на главную страницу</a></p>
+        <p><a href="/message_server-1.0.0/ui/LogOut">Выйти</a></p>
+    </body>
 </html>

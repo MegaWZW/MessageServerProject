@@ -78,7 +78,6 @@ public class MessageServlet extends HttpServlet {
 		MessageDTO message = new MessageDTO(sender, receiver, messageText);
 		messageService.save(message);
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.write("<h1>" + "Сообщение отправлено!" + "</h1>");
+		request.getRequestDispatcher("/messageSent.jsp").forward(request,response);
 	}
 }

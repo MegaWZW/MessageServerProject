@@ -1,20 +1,18 @@
 package com.mycompany.app.message_server.controllers;
 
-import com.mycompany.app.message_server.core.dto.MessageDTO;
 import com.mycompany.app.message_server.core.dto.StatisticsResultDTO;
-import com.mycompany.app.message_server.service.api.IMessageService;
 import com.mycompany.app.message_server.service.api.IStatisticsService;
 import com.mycompany.app.message_server.service.factories.StatisticsServiceSingleton;
 
-import javax.annotation.processing.Messager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
+/*
+Сервлет не пргодился, возможно надо его удалить
+ */
 public class UiAdminStatisticsServlet extends HttpServlet {
     private IStatisticsService service;
 

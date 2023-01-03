@@ -1,21 +1,34 @@
 package com.mycompany.app.message_server.listeners;
 
 import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+import javax.servlet.http.*;
 
 @WebListener
-public class ActiveUsersListener implements HttpSessionListener {
+public class ActiveUsersListener implements HttpSessionAttributeListener {
 
-	public static long counter = 0;
+	private static long counter = 0;
 
 	@Override
-	public void sessionCreated(HttpSessionEvent se) {
-		counter++;
+	public void attributeAdded(HttpSessionBindingEvent event) {
+		HttpSession session = event.getSession();
+		if (session.getAttribute("user") != null) {
+			counter++;
+		}
 	}
 
 	@Override
-	public void sessionDestroyed(HttpSessionEvent se) {
-		counter--;
+	public void attributeRemoved(HttpSessionBindingEvent event) {
+		if (counter > 0){
+			counter--;
+		}
+	}
+
+	@Override
+	public void attributeReplaced(HttpSessionBindingEvent event) {
+
+	}
+
+	public static long getCounter(){
+		return counter;
 	}
 }
