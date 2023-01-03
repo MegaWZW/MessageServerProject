@@ -12,7 +12,8 @@
         <h1>Сообщения для пользователя: "${receiver.dto.login}"</h1>
         <br><br>
         <c:forEach items="${messages}" var="item">
-            <p>${item.dtAcceptance.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))} : ${item.message.text}</p>
+            <p>${item.dtAcceptance.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))} от
+             ${item.message.from.dto.login}: ${item.message.text}</p>
         </c:forEach>
         <p><a href="/message_server-1.0.0/ui/user/message">Написать сообщение</a></p>
         <p><a href="/message_server-1.0.0/ui">Вернуться на главную страницу</a></p>

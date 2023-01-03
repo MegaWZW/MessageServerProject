@@ -1,5 +1,6 @@
 package com.mycompany.app.message_server.controllers;
 
+import com.mycompany.app.message_server.core.dto.RegisteredUserDTO;
 import com.mycompany.app.message_server.core.dto.StatisticsResultDTO;
 import com.mycompany.app.message_server.service.api.IStatisticsService;
 import com.mycompany.app.message_server.service.factories.StatisticsServiceSingleton;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "StatisticsServlet", urlPatterns = "/api/admin/statistics")
@@ -27,7 +29,18 @@ public class StatisticsServlet extends HttpServlet {
 		StatisticsResultDTO result = statisticsService.getResult();
 		response.setContentType("text/html; charset=UTF-8");
 		request.setAttribute("result", result);
-		request.getRequestDispatcher("/statistics.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null){
+			throw new IllegalArgumentException("Для доступа по этому адресу необходимо быть авторизованным");
+		}
+		RegisteredUserDTO currentUser = (RegisteredUserDTO) session.getAttribute("user");
+
+		if(currentUser.isIdAdmin()){
+			request.getRequestDispatcher("/statistics.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("/accessDenied.jsp").forward(request, response);
+		}
+
 
 	}
 }
