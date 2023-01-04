@@ -3,3 +3,5 @@ out/
 *.iml
 *.class
 target/
+.DS_Store
+src/.DS_Store

@@ -9,7 +9,7 @@
 
 	</head>
 	<body>
-		<form action="/message_server-1.0.0/api/login" method="post">
+		<form action="${pageContext.request.contextPath}/api/login" method="post">
 		    <h1>Вход: </h1>
 		    <br><br>
 		    Логин : <input name="login"/>

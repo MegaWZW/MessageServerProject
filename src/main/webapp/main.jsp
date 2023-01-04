@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<h1>Добро пожаловать в мессенджер!<h1>
-		<p><a href="/message_server-1.0.0/ui/singIn">Войти</a></p>
-		<p><a href="/message_server-1.0.0/ui/singUp">Регистрация</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui/singIn">Войти</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui/singUp">Регистрация</a></p>
 	</body>
 </html>

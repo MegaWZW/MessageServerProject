@@ -14,7 +14,7 @@
         <p>Количество активных пользователей: <c:out value="${result.usersOnline}" /></p>
         <p>Количество отправленных в приложении сообщений:  <c:out value="${result.messagesAmount}" /></p>
         <br><br>
-        <p><a href="/message_server-1.0.0/ui">Вернуться на главную страницу</a></p>
+        <p><a href="${pageContext.request.contextPath}/ui">Вернуться на главную страницу</a></p>
 
     </body>
 </html>
