@@ -9,6 +9,6 @@
 	</head>
 	<body>
 		<h1>В доступе отказано! Недостаточно прав!<h1>
-		<p><a href="/message_server-1.0.0/ui">Вернуться на главную</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui">Вернуться на главную</a></p>
 		</body>
 </html>

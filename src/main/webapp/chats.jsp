@@ -15,8 +15,8 @@
             <p>${item.dtAcceptance.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))} от
              ${item.message.from.dto.login}: ${item.message.text}</p>
         </c:forEach>
-        <p><a href="/message_server-1.0.0/ui/user/message">Написать сообщение</a></p>
-        <p><a href="/message_server-1.0.0/ui">Вернуться на главную страницу</a></p>
-        <p><a href="/message_server-1.0.0/ui/LogOut">Выйти</a></p>
+        <p><a href="${pageContext.request.contextPath}/ui/user/message">Написать сообщение</a></p>
+        <p><a href="${pageContext.request.contextPath}/ui">Вернуться на главную страницу</a></p>
+        <p><a href="${pageContext.request.contextPath}/ui/LogOut">Выйти</a></p>
     </body>
 </html>

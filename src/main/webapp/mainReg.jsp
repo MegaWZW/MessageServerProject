@@ -9,8 +9,8 @@
 	</head>
 	<body>
 		<h1>Добро пожаловать в мессенджер!<h1>
-		<p><a href="/message_server-1.0.0/ui/user/message">Написать сообщение</a></p>
-		<p><a href="/message_server-1.0.0/ui/user/chats">Посмотреть отправленные мне сообщения</a></p>
-		<p><a href="/message_server-1.0.0/ui/LogOut">Выйти</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui/user/message">Написать сообщение</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui/user/chats">Посмотреть отправленные мне сообщения</a></p>
+		<p><a href="${pageContext.request.contextPath}/ui/LogOut">Выйти</a></p>
 	</body>
 </html>
