@@ -43,10 +43,10 @@ public class MessageDao implements IMessageDao {
 		UserDTO userDTO = registeredUserDTO.getDto();
 		if(userDTO == null)
 			throw new NoSuchElementException("Адресат не зарегистрирован");
-		String tenpLogin = userDTO.getLogin();
-		if(tenpLogin==null)
+		String tempLogin = userDTO.getLogin();
+		if(tempLogin==null)
 			throw new NoSuchElementException("У адресата отсутсвует логин");
-		 login.equals(tenpLogin);
+		return login.equals(tempLogin);
 
 	}
 	@Override
