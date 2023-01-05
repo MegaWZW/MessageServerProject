@@ -8,6 +8,7 @@ import com.mycompany.app.message_server.dao.api.IMessageDao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MessageDao implements IMessageDao {
 
@@ -33,19 +34,18 @@ public class MessageDao implements IMessageDao {
 
 	private boolean isUserMessage(AcceptedMessageDTO message,String login){
 		MessageDTO msgDTO = message.getMessage();
+
 		if(msgDTO == null)
-			throw new IllegalArgumentException("Сообщение отсутствует");
+			throw new NoSuchElementException("Сообщение отсутствует");
 		RegisteredUserDTO registeredUserDTO = msgDTO.getTo();
 		if(registeredUserDTO == null)
-			throw new IllegalArgumentException("Адресат письма отсутствет");
+			throw new NoSuchElementException("Адресат письма отсутствет");
 		UserDTO userDTO = registeredUserDTO.getDto();
 		if(userDTO == null)
-			throw new IllegalArgumentException("Адресат не зарегистрирован");
+			throw new NoSuchElementException("Адресат не зарегистрирован");
 		String tenpLogin = userDTO.getLogin();
 		if(tenpLogin==null)
-			throw new IllegalArgumentException("У адресата отсутсвует логин");
-
-
+			throw new NoSuchElementException("У адресата отсутсвует логин");
 		 login.equals(tenpLogin);
 
 	}
